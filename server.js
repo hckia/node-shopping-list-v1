@@ -8,10 +8,10 @@ const bodyParser = require('body-parser');
 
 // we import the ShoppingList model, which we'll
 // interact with in our GET endpoint
-const {ShoppingList} = require('./models');
+const {ShoppingList, Recipes} = require('./models');
 
 //adding Recipes constant similar to ShoppingList constant
-const {Recipes} = require('./models');
+// const {Recipes} = require('./models');
 
 const jsonParser = bodyParser.json();
 const app = express();
@@ -58,6 +58,12 @@ app.post('/shopping-list', jsonParser, (req, res) => {
 
  const item = ShoppingList.create(req.body.name, req.body.budget);
  res.status(201).json(item);
+});
+
+app.delete('/shopping-list/:id', (req, res) => {
+  ShoppingList.delete(req.params.id);
+  console.log(`Deleted shopping list item \`${req.params.id}\``);
+  res.status(204).end();
 });
 
 app.listen(process.env.PORT || 8080, () => {
