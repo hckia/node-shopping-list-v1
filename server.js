@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const {ShoppingList} = require('./models');
 
 //adding Recipes constant similar to ShoppingList constant
-const {Recipes} = require('./modeels');
+const {Recipes} = require('./models');
 
 const jsonParser = bodyParser.json();
 const app = express();
