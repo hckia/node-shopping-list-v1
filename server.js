@@ -39,7 +39,7 @@ app.get('/shopping-list', (req, res) => {
 //when the route is called with GET, return
 //all current Recipe items by calling Recipes.get()
 app.get('/recipes', (req, res) => {
-  res.json(ShoppingList.get());
+  res.json(Recipes.get());
 });
 
 app.listen(process.env.PORT || 8080, () => {
